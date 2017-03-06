@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
-    config.vm.box = "../vagrant/package.box"
+    config.vm.box = "/Users/lvovych/.vagrant/package.box"
     config.ssh.private_key_path = "/Users/lvovych/.ssh/vagrant/id_rsa"    
     config.vm.provider "virtualbox" do |vb|
     	vb.gui = false
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "learn" do |learn|
       learn.vm.hostname = "learn"
       learn.vm.network "private_network", type: "dhcp", bridge: "en0: Ethernet"
-      config.vm.synced_folder "/Users/lvovych/Documents/development/learning/web", "/opt/data/web", owner:"www-data", group:"www-data"
+      config.vm.synced_folder "/Users/lvovych/Documents/development/full-stack/web", "/opt/data/web", owner:"www-data", group:"www-data"
 
     end
 
