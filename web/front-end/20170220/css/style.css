@@ -1,0 +1,54 @@
+@font-face {
+	font-family: roboto-light;
+	src: url(fonts/roboto-light.ttf);
+}
+@font-face {
+	font-family: roboto-regular;
+	src: url(fonts/roboto-regular.ttf);
+}
+@font-face {
+	font-family: exo;
+	src: url(fonts/exo-2.otf);
+}
+
+h1 {
+	text-align: center;
+
+
+}
+h2 {
+	text-align: center;
+
+}
+h3 {
+	text-align: center;
+
+}
+h4 {
+	text-align: center;
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+	margin-left: 40em;
+	margin-right: 40em;
+
+}
+p {
+	font-size: 14px;
+	margin-top: 1px;
+    margin-bottom: 1px;
+}
+pre {
+	font-family: roboto-light;
+
+}
+.prefont-regular {
+	font-family: roboto-regular;
+
+}
+.prefont-exo2 {
+	font-family: exo;
+
+}
+.p-ident {
+	text-indent: 2em;
+}

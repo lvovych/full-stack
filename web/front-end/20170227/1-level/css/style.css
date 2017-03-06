@@ -1,0 +1,48 @@
+.main {
+    border: 2px solid;
+    height: 360px;
+    width: 720px;
+    border-radius: 2%;
+    position: relative;
+    float: right;
+}
+
+.sub-left {
+	position: absolute;
+    height: 90px;
+    width: 105px;
+    border: 2px solid;
+    border-radius: 5%;
+}
+
+.sub-right {
+	position: absolute;
+	height: 210px;
+	width:345px;
+	right: 0px;
+    border: 2px solid;
+    border-radius: 5%;
+    margin-bottom: 75px;
+    margin-top: 75px;
+    
+}
+.sub-right-1 {
+	position: absolute;
+    height: 75px;
+    width: 90px;
+    border: 2px solid;	
+    bottom: 75px;
+    left: 75px; 
+}
+.inline {
+	display: inline-flex;
+}
+.tab {
+	border: 1px solid;
+}
+td {
+	border: 1px solid;
+}
+.tab-header {
+	text-align: center;
+}
