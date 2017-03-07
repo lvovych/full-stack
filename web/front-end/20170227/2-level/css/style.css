@@ -104,19 +104,16 @@ h4 {
 		height: 160px;
 	}
 	.container {
-		/*width: 33%;*/
 		flex: 0.3 33%;
 	}
 	.container.container4 {
 		order:4;
-		/*width: 49.5%;*/
-		flex: 0.4 49.5%;
+		flex: 0.5 50%;
 		border:0;
 	}
 	.container.container5 {
 		order: 5;
-		/*width: 49.5%;*/
-		flex: 0.4 49.5%; 
+		flex: 0.5 50%; 
 	}
 
 }
