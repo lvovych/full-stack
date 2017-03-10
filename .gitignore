@@ -1,7 +1,6 @@
 *.DS_Store*
 .vagrant/*
 .idea/*
-Vagrantfile
 .idea/
 .vagrant/
-
+Vagrantfile

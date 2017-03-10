@@ -20,7 +20,7 @@ sudo apt-key add dotdeb.gpg && rm dotdeb.gpg
 # Install my base enviroment
 aptitude update && aptitude install -y mc ccze htop git
 
-# Install and prepare Nginx + PHP5.6
+# Install and prepare Nginx + PHP7.0
 aptitude install -y nginx && aptitude install -y php7.0-fpm php7.0-curl php7.0-xdebug php7.0-pdo-mysql
 
 rm /etc/nginx/sites-enabled/default
