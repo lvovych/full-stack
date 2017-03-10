@@ -77,7 +77,7 @@ switch ($_POST['operand']){
             echo "ОШИБКА: на 0 делить нельзя";
         }
         else {
-            echo "RESULT: " . $result;
+            echo "\n RESULT: " . $result;
         }
         break;
 }
