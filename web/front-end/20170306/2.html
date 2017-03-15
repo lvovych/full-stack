@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>task 2</title>
+</head>
+<body>
+</body>
+<script>
+    age = prompt("Enter you age", '');
+//    интервалы 0 -6, 6- 12, 12-18, 18+.
+
+	if (age > 0 && age <7 || age > 6 && age < 13) {
+	    alert ('You absolutely can not drink alcohol!');
+	} else if (age > 12 && age < 18 ) {
+        alert ('You so yong for drinking alcogol!');
+	} else if (age > 18 && age <= 100)
+	{
+	    alert ("You can drink alcohol. :)");
+	} else (age <=0 || age > 100)
+	{
+        age = prompt("Please, enter corect age!", '');
+	}
+</script>
+</html>

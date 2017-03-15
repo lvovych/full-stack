@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>task 1</title>
+</head>
+<body>
+
+<form id="form" onsubmit="calculate();">
+	<span>Enter time (t): </span><input type="number" name="t"><br>
+    <span>Enter Speed (V): </span><input type="number" name="v"><br>
+	<input type="submit" value="Submit">
+</form>
+
+</body>
+<script>
+    function  calculate () {
+        var h = null;
+        var v = document.getElementById("form").elements['v'].value;
+        var t = document.getElementById("form").elements['t'].value;
+        var g = 9.8;
+        h= (v * t) +( (g*(t*t))/2);
+        alert ('Result = ' + h);
+    }
+</script>
+</html>
