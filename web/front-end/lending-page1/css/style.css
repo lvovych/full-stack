@@ -1,0 +1,115 @@
+@font-face {
+    font-family:'Poppins-Medium';
+    src: url(fonts/Poppins-Medium.ttf) format('truetype');
+}
+@font-face {
+    font-family:'Poppins-Regular';
+    src: url(fonts/Poppins-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family:'Poppins-SemiBold';
+    src: url(fonts/Poppins-SemiBold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'LibreBaskerville-Regular';
+    src: url(fonts/LibreBaskerville-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: LibreBaskerville-Bold;
+    src: url(fonts/LibreBaskerville-Bold.ttf) format('truetype');
+}
+body {
+    font-family: Poppins-Regular;
+}
+h1 {
+    color: #fff;
+    font-family: LibreBaskerville-Regular;
+    font-size: 60px;
+    line-height: 80px;
+}
+/*Выравниваем контент по средине экрана*/
+.wrapper {
+    position: relative;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/*Домашняя страница*/
+.home {
+    background-color: rgba(38, 39, 50, 0.85);
+    height: 100vh;
+    padding: 0 10px 0 10px;
+}
+.home-header {
+    height: 51px;
+    position: relative;
+}
+.home-logo {
+    float: left;
+    margin: 24px 0 24px 0;
+}
+.nav {
+    float: right;
+    margin: 24px 0 24px 0;
+    font-family: Poppins-Medium;
+    font-size: 14px;
+    line-height: 27px;
+}
+.nav>ul>li {
+    margin-left: 22px;
+    float: left;
+}
+.nav a {
+    color: #fff;
+    text-decoration: none;
+}
+.slogan {
+    margin: 23% auto 0;
+    text-align: center;
+    width: 818px;
+}
+.mywork {
+    margin: 5% auto 0;  /**/
+    width: 180px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #fc5f45;
+    text-align: center;
+}
+.mywork>span {
+    color: #ffffff;
+    font-family: Poppins-SemiBold;
+    font-size: 16px;
+    line-height: 50px;
+    text-transform: uppercase;
+}
+.garanties {
+    margin: 9% auto 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    font-family: Poppins-Medium;
+    font-size: 18px;
+    line-height: 80px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.garanties .fixedprice>span{
+    color: #38c695;
+}
+.garanties .time>span{
+    color: #b27cf5;
+}
+.garanties .satisfaction>span{
+    color: #feb960;
+}
+
+
+
+
+/*Страница About*/
+.about {
+    background-color: red;
+    height: 100vh;
+    padding: 0 10px 0 10px;
+}
