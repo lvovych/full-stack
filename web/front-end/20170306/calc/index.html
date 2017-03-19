@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="src/style.css">
+    <script src="src/calc.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="calculator" id="calc">
+        <div class="line">
+            <input type="text" id="line" value="0" disabled>
+        </div>
+        <div class="buttons">
+                <input type="button" name="ac" value="AC" onclick="calc.pressKey(this.name)">
+                <input type="button" name="mod" value='&percnt;' onclick="calc.pressKey(this.name)">
+                <input type="button" name="degree" value="&Lambda;" onclick="calc.pressKey(this.name)">
+                <input type="button" name="/" value="&divide;" onclick="calc.pressKey(this.name)">
+                <input type="button" name="1" value="1" onclick="calc.pressKey(this.name)">
+                <input type="button" name="2" value="2" onclick="calc.pressKey(this.name)">
+                <input type="button" name="3" value="3" onclick="calc.pressKey(this.name)">
+                <input type="button" name="*" value="&Cross;" onclick="calc.pressKey(this.name)">
+                <input type="button" name="4" value="4" onclick="calc.pressKey(this.name)">
+                <input type="button" name="5" value="5" onclick="calc.pressKey(this.name)">
+                <input type="button" name="6" value="6" onclick="calc.pressKey(this.name)">
+                <input type="button" name="-" value="-" onclick="calc.pressKey(this.name)">
+                <input type="button" name="7" value="7" onclick="calc.pressKey(this.name)">
+                <input type="button" name="8" value="8" onclick="calc.pressKey(this.name)">
+                <input type="button" name="9" value="9" onclick="calc.pressKey(this.name)">
+                <input type="button" name="+" value="+" onclick="calc.pressKey(this.name)">
+                <input type="button" name="invert" value="+/-" onclick="calc.pressKey(this.name)">
+                <input type="button" name="0" value='0' onclick="calc.pressKey(this.name)">
+                <input type="button" name="" value=' '>
+                <input type="button" name="result" value="=" onclick="calc.pressKey(this.name)">            
+        </div>
+
+    </div>
+
+
+</body>
+</html>

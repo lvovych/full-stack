@@ -1,0 +1,33 @@
+@font-face {
+	font-family: 'digital';
+	src: url(fonts/digital-7.ttf);
+}
+input[type=button] {
+      background: #000;
+      color: #fff;
+      height: 60px;
+      width: 60px;
+      font-size: 20px;
+      margin: 2px;
+}
+input[type=text] {
+	border: 2px solid;
+	background: #fff;
+	color: #000;
+	height: 50px;
+	width: 240px;
+	font-size: 48px;
+	font-family: 'digital';
+	text-align: right;
+}
+.calculator {
+	border: 1px solid;
+	padding: 15px;
+	position: relative;
+	width: 270px;
+	margin: 30px auto;
+}
+.line {
+	margin: 10px 15px 10px 15px;
+}
+
