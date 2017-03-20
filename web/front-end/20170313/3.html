@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task 3</title>
+	<link rel="stylesheet" type="text/css" href="3.css">
+<!-- 	
+	В аттаче код, который надо дописать так чтобы у пользоателя цыклически спрашивалось хочет ли он ввести еще пользователей. И пользователи сохранялись в масив объектов.
+	Если пользователь выбирает ввести нового, то в  вызывается фукнция заполнения
+	Если позьзователь выбирает посмотреть таблицу, то весь масив генерится в таблицу( подобно тому как мы на паре делали со списком)
+ -->
+</head>
+<body>
+<div id="table"></div>
+
+<script type="text/javascript">
+	var persons = [];
+        function enter() {
+        	var person = new Object;
+            person.name = prompt("Введите свое имя:");
+            person.sname = prompt("Введите свою фамилию:");
+            person.age = prompt("Введите свой возраст:");
+            persons.push(person);
+        }
+
+        function say() {
+        	// Создаем таблицу и theader
+        	createTable();
+        	// Наполляем tbody
+        	var table = document.getElementsByTagName('table');
+        	table = table[0];
+        	var tbody = document.createElement('tbody');
+        	table.appendChild(tbody);
+        	for (var i=0; i<persons.length; i++) {
+    			var tr = document.createElement('tr');
+    			tbody.appendChild(tr);
+    			for (item in persons[i]) {
+    				var td = document.createElement('td');
+    				tr.appendChild(td);
+    				td.innerHTML = persons[i][item];
+    			}
+	        }
+
+        }
+        function ask () {
+        	do {
+         		var answer = prompt ("Ведите: 0 - если хотите добавить пользователя и 1 - если хотите вывести список пользователей");
+         		if (answer === '0') {
+        			enter();
+        		}
+        		else if (answer === '1') {
+        			say();
+        		}
+        		else {
+        			alert ("Введите значение 0 или 1");
+        			answer = '0';
+        		}
+         	}
+         	while (answer === '0')
+        }
+
+    	function createTable () {
+    		var arr = ['First name', 'Last name', 'Age'];
+    		var tableDiv = document.getElementById('table');
+    		var table =document.createElement('table');
+    		tableDiv.appendChild(table);
+    		var thead = document.createElement('thead');
+    		table.appendChild(thead);
+    		var tr = document.createElement('tr');
+        	thead.appendChild(tr);
+        	for (var i = 0; i<3; i++) {
+        		var td = document.createElement('td');
+        		tr.appendChild(td);
+        		td.innerHTML = arr[i];
+        	}
+
+    	}
+    	
+     	ask();
+
+</script>
+</body>
+</html>

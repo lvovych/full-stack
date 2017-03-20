@@ -1,3 +1,4 @@
+// Создаем объект
 calc = {
     firstoper : '',
     secondoper : '',
@@ -5,16 +6,16 @@ calc = {
     result : ''
 };
 
+// Метод который очищает все свойства и приписывает в строку "0"
 calc.reset = function () {
     this.firstoper = '';
     this.secondoper = '';
     this.operation = '';
     this.result = '';
     this.setLine(0);
-    console.log(this);
-
 }
-// Mathimatics operations methods
+
+//Математические операции
 calc.plus = function (first, second) {
     first = parseInt(first);
     second = parseInt(second);
@@ -47,11 +48,12 @@ calc.invert = function (number) {
     number = parseInt(number);
     return number * -1 ;
 }
+// Пишем строку в input.value
 calc.setLine = function (string) {
     document.getElementById("line").value = String(string);
 }
 
-// Modification properties
+// Наполняем операнды
 calc.addToChar = function (symb) {
     if (this.operation === '') {
         this.firstoper += symb;
@@ -64,6 +66,7 @@ calc.addToChar = function (symb) {
     
 }
 
+// Устанавливаем операцию
 calc.setOperation = function (name) {
     this.operation = name;
     if (this.result !== '') {
@@ -72,6 +75,7 @@ calc.setOperation = function (name) {
     }
 }
 
+// Выполняем вычисление
 calc.getResult = function () {
    switch (this.operation) {
         case '+':
@@ -82,7 +86,6 @@ calc.getResult = function () {
             break;
         case '*':
             this.result = this.multiplication(this.firstoper, this.secondoper);
-            console.log("Result: " + this.result);
             break;
         case '/':
             this.result = this.division(this.firstoper, this.secondoper);
@@ -92,13 +95,12 @@ calc.getResult = function () {
             break;
         case 'degree':
             this.result = this.degree(this.firstoper, this.secondoper);
-            console.log("Result: " + this.result);
             break;            
    }
    this.setLine(this.result);
 }
 
-
+// Обрабатываем нажатие клавиш
 calc.pressKey = function (name) {
     if (Number.isInteger(parseInt(name))) {
         this.addToChar(name);
@@ -113,14 +115,16 @@ calc.pressKey = function (name) {
                         this.firstoper = this.invert(this.firstoper);
                         this.setLine(this.firstoper);
                     }
+                    else if (this.result !== '') {
+                        this.result = this.invert(this.result);
+                        this.setLine(this.result);
+                    }
                     else {
                         this.secondoper = this.invert(this.secondoper);
                         this.setLine(this.secondoper);
                     }
                     break;
                 case 'result':
-                    console.log(this);
-
                     this.getResult();
                     break;
                 default:
