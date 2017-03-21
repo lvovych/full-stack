@@ -1,137 +1,137 @@
-// Создаем объект
+// функция записи в елемент Input
+var setLine = function (string) {
+    document.getElementById("line").value = String(string);
+}
+
 calc = {
     firstoper : '',
     secondoper : '',
     operation : '',
-    result : ''
-};
-
-// Метод который очищает все свойства и приписывает в строку "0"
-calc.reset = function () {
-    this.firstoper = '';
-    this.secondoper = '';
-    this.operation = '';
-    this.result = '';
-    this.setLine(0);
-}
-
-//Математические операции
-calc.plus = function (first, second) {
-    first = parseInt(first);
-    second = parseInt(second);
-    return first + second;
-}
-calc.subtraction = function (first, second) {
-    first = parseInt(first);
-    second = parseInt(second);
-    return first - second;
-}
-calc.multiplication = function (first, second) {
-    first = parseInt(first);
-    second = parseInt(second);
-    return first * second;
-}
-calc.division = function (first, second) {
-    first = parseInt(first);
-    second = parseInt(second);
-    return first / second;
-}
-calc.module = function (first, second) {
-    return first % second;
-}
-calc.degree = function (first, second) {
-    first = parseInt(first);
-    second = parseInt(second);
-    return Math.pow(first, second);
-}
-calc.invert = function (number) {
-    number = parseInt(number);
-    return number * -1 ;
-}
-// Пишем строку в input.value
-calc.setLine = function (string) {
-    document.getElementById("line").value = String(string);
-}
-
-// Наполняем операнды
-calc.addToChar = function (symb) {
-    if (this.operation === '') {
-        this.firstoper += symb;
-        this.setLine(this.firstoper);
-    }
-    else {
-        this.secondoper += symb;
-        this.setLine(this.secondoper);
-    }
-    
-}
-
-// Устанавливаем операцию
-calc.setOperation = function (name) {
-    this.operation = name;
-    if (this.result !== '') {
-        this.firstoper = this.result;
+    reset: function () {
+        // Метод который очищает все свойства и приписывает в строку "0"
+        this.firstoper = '';
         this.secondoper = '';
+        this.operation = '';
+        delete this.result;
+        setLine('0');
+    },
+    plus: function (callback) {
+        callback (this.result = (+this.firstoper) + (+this.secondoper)); // Операция сложения
+    },
+    subtraction: function (callback) {
+        callback(this.result = (+this.firstoper) - (+this.secondoper)); // Операция вычитания
+    },
+    multiplication: function (callback) {
+        callback(this.result = (+this.firstoper) * (+this.secondoper)); // Операция умножения
+    },
+    division: function (callback) {
+        callback(this.result = (+this.firstoper) / (+this.secondoper)); // Операци деления
+    },
+    module: function (callback) {
+        callback(this.result = (+this.firstoper) % (+this.secondoper)); // Операция получения остатка от деления
+    },
+    degree: function (callback) {
+        callback(this.result = Math.pow(+this.firstoper,+this.secondoper)); // Операция возведения в степень
+    },
+    setOperand: function (char, callback) {
+        // Меняем значение операнда
+        if (this.operation === '' && !this.result) {
+            // меняем первый
+            if (callback) {
+                this.firstoper = callback(this.firstoper);
+            } 
+            setLine(this.firstoper += char);
+           
+        }
+        else if (this.result && callback) {
+            // Умножение на -1 результата
+            this.result = callback(this.result);
+            setLine(this.result);
+        }        
+        else if (this.firstoper !== '' && this.operation) {
+            // меняем второй
+            if (callback) {
+                this.secondoper = callback(this.secondoper);
+            } 
+            setLine(this.secondoper += char);
+        } 
+    },
+    setOperation: function (name) {
+        // Сохраняем выбраную операцию
+        this.operation = name;
+        if (this.result) {
+            this.firstoper = this.result;
+            setLine(this.firstoper);
+            delete this.result;
+            this.secondoper = '';
+        }
+    },
+    getResult: function () {
+        // Выполняем вычисление
+        switch (this.operation) {
+            case '+':
+                this.plus(setLine);
+                break;
+            case '-':
+                this.subtraction(setLine);
+                break;
+            case '*':
+                this.multiplication(setLine);
+                break;
+            case '/':
+                this.division(setLine);
+                break;
+            case 'mod':
+                this.module(setLine);
+                break;
+            case 'degree':
+                this.degree(setLine);
+                break;            
+        } 
     }
-}
-
-// Выполняем вычисление
-calc.getResult = function () {
-   switch (this.operation) {
-        case '+':
-            this.result = this.plus(this.firstoper, this.secondoper);
-            break;
-        case '-':
-            this.result = this.subtraction(this.firstoper, this.secondoper);
-            break;
-        case '*':
-            this.result = this.multiplication(this.firstoper, this.secondoper);
-            break;
-        case '/':
-            this.result = this.division(this.firstoper, this.secondoper);
-            break;
-        case 'mod':
-            this.result = this.module(this.firstoper, this.secondoper);
-            break;
-        case 'degree':
-            this.result = this.degree(this.firstoper, this.secondoper);
-            break;            
-   }
-   this.setLine(this.result);
-}
-
+};
 // Обрабатываем нажатие клавиш
 calc.pressKey = function (name) {
     if (Number.isInteger(parseInt(name))) {
-        this.addToChar(name);
+        this.setOperand(name);
     } 
     else {
         switch (name) {
-                case 'ac':
-                    this.reset();
-                    break;
-                case 'invert':
-                    if (this.operation === '') {
-                        this.firstoper = this.invert(this.firstoper);
-                        this.setLine(this.firstoper);
-                    }
-                    else if (this.result !== '') {
-                        this.result = this.invert(this.result);
-                        this.setLine(this.result);
-                    }
-                    else {
-                        this.secondoper = this.invert(this.secondoper);
-                        this.setLine(this.secondoper);
-                    }
-                    break;
-                case 'result':
-                    this.getResult();
-                    break;
-                default:
-                    this.setOperation(name);
-                    break;
-            }        
+            case '':
+                break;
+            case 'ac':
+                this.reset();
+                break;
+            case 'invert':
+                this.setOperand('',function (number) {
+                    return +number * -1;
+                });
+                break;
+            case 'result':
+                this.getResult();
+                break;
+            default:
+                this.setOperation(name);
+                break;
+        }        
     }
-    
-
 }
+
+// Вешаем обработчик на кнопки
+window.onload = function () {
+    var buttons = document.querySelectorAll('input[type=button]');
+    for (var i = 0; i < buttons.length; i++){
+        buttons[i].onclick = function () {
+            calc.pressKey(this.name);
+        };
+    }
+}
+
+
+
+
+
+
+
+
+
